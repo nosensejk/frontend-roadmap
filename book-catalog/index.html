@@ -1,13 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Каталог книг</title>
-   <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
-</head>
-<body>
-   <h1>Каталог книг</h1>
-   <p>Добро пожаловать в наш каталог!</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог книг</title>
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <h1>Каталог книг</h1>
+      <nav>
+        <a href="/">Главная</a>
+        <a href="/books">Книги</a>
+        <a href="/about">О нас</a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Популярные книги</h2>
+        <article>
+          <h3>Гарри Поттер и философский камень</h3>
+          <img src="images/harry-potter.jpg" alt="Обложка книги" />
+          <p>Автор: Дж. К. Роулинг</p>
+          <a href="/books/harry-potter"> Подробнее </a>
+        </article>
+        <article>
+          <h3>Властелин колец</h3>
+          <img src="images/lord-of-the-rings.jpg" alt="Обложка книги" />
+          <p>Автор: Дж. Р. Р. Толкин</p>
+          <a href="/books/lord-of-the-rings"> Подробнее </a>
+        </article>
+      </section>
+      <aside>
+        <h2>Фильтры</h2>
+        <p>Фильтрация по жанру</p>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© 2026 Book Catalog</p>
+    </footer>
+  </body>
 </html>
