@@ -8,107 +8,72 @@
   </head>
   <body>
     <header>
-      <h1>Каталог книг</h1>
+      <a href="/">
+        <img src="book.svg" alt="Logo" />
+        Book Catalog
+      </a>
+
       <nav>
-        <a href="/">Главная</a>
-        <a href="/books">Книги</a>
-        <a href="/about">О нас</a>
+        <a href="/catalog"> Catalog </a>
+
+        <a href="/authors"> Authors </a>
+
+        <a href="/about"> About Us </a>
       </nav>
+
+      <button>Log In</button>
     </header>
+
     <main>
       <section>
-        <h2>Популярные книги</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Название</th>
-              <th>Автор</th>
-              <th>Жанр</th>
-              <th>Год</th>
-            </tr>
-          </thead>
+        <h1>Book Catalog</h1>
 
-          <tbody>
-            <tr>
-              <td>Гарри Поттер</td>
-              <td>Дж. К. Роулинг</td>
-              <td>Фэнтези</td>
-              <td>1997</td>
-            </tr>
-
-            <tr>
-              <td>Дюна</td>
-              <td>Фрэнк Герберт</td>
-              <td>Фантастика</td>
-              <td>1965</td>
-            </tr>
-
-            <tr>
-              <td>1984</td>
-              <td>Джордж Оруэлл</td>
-              <td>Антиутопия</td>
-              <td>1949</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <aside>
-        <h2>Фильтры</h2>
-        <p>Фильтрация по жанру</p>
         <form>
-          <div>
-            <label for="search"> Название книги </label>
+          <label for="search"> Book Title </label>
 
-            <input
-              id="search"
-              type="text"
-              placeholder="Введите название книги"
-              minlength="2"
-              maxlength="100"
-            />
-          </div>
+          <input id="search" type="text" placeholder="Search a book..." />
 
-          <div>
-            <label for="genre"> Жанр </label>
+          <label for="genre"> Genre </label>
 
-            <select id="genre">
-              <option value="all">Все жанры</option>
-              <option value="fantasy">Фантастика</option>
-              <option value="detective">Детектив</option>
-              <option value="novel">Роман</option>
-            </select>
-          </div>
+          <select id="genre">
+            <option value="all">Genre</option>
 
-          <div>
-            <label>
-              <input type="checkbox" name="available" />
-              Только доступные книги
-            </label>
-          </div>
+            <option value="fantasy">Fantasy</option>
+          </select>
 
-          <div>
-            <p>Сортировка</p>
-
-            <label>
-              <input type="radio" name="sort" value="newest" checked />
-              Сначала новые
-            </label>
-
-            <label>
-              <input type="radio" name="sort" value="oldest" />
-              Сначала старые
-            </label>
-          </div>
-
-          <button type="submit">Найти</button>
-
-          <button type="reset">Сбросить</button>
+          <button type="submit">Search</button>
         </form>
-      </aside>
+      </section>
+
+      <section>
+        <article>
+          <img src="dune.jpg" alt="Cover of the book «Dune»" />
+
+          <h2>Dune</h2>
+
+          <p>F. Herbert</p>
+        </article>
+
+        <article>
+          <img src="1984.jpg" alt="Cover of the book «1984»" />
+
+          <h2>1984</h2>
+
+          <p>G. Orwell</p>
+        </article>
+
+        <article>
+          <img src="hamlet.jpg" alt="Cover of the book «Hamlet»" />
+
+          <h2>Hamlet</h2>
+
+          <p>W. Shakespeare</p>
+        </article>
+      </section>
     </main>
 
     <footer>
-      <p>© 2026 Book Catalog</p>
+      <p>© 2026 Book Catalog. All rights reserved.</p>
     </footer>
   </body>
 </html>
