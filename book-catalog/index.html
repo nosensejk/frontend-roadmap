@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Каталог книг</title>
     <link rel="shortcut icon" href="logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <div>
-        <a href="/">
+        <a href="#">
           <img src="./assets/book.svg" alt="Logo" />
         </a>
         <div>
@@ -19,9 +20,9 @@
       </div>
     </header>
     <main>
-      <section>
+      <section class="search-form">
         <h1>Discover Your Next Great Read</h1>
-        <p>
+        <p class="description">
           Search millions of books, build your personal library, and never lose
           track of what to read next
         </p>
@@ -35,92 +36,102 @@
             type="text"
             placeholder="Search for books by title or author..."
           />
-          <button type="submit">Search</button>
+          <button type="submit" class="search-btn">Search</button>
         </form>
       </section>
       <div>
         <section>
-          <article>
-            <button><img src="./assets/heart.svg" alt="Like" /></button>
+          <article class="book-card">
+            <button class="like-btn">
+              <img src="./assets/heart.svg" alt="Like" />
+            </button>
             <img src="gatsby.jpg" alt="Book cover of The Great Gatsby" />
-            <p>The Great Gatsby</p>
-            <p>F. Scott Fitzgerald</p>
-            <span>1925</span>
+            <p class="book-title">The Great Gatsby</p>
+            <p class="book-author">F. Scott Fitzgerald</p>
+            <span class="book-year">1925</span>
           </article>
-          <article>
-            <button><img src="./assets/heart.svg" alt="Like" /></button>
+          <article class="book-card">
+            <button class="like-btn">
+              <img src="./assets/heart.svg" alt="Like" />
+            </button>
             <img
               src="pride-and-prejudice.jpg"
               alt="Book cover of Pride and Prejudice"
             />
-            <p>Pride and Prejudice</p>
-            <p>Jane Austen</p>
-            <span>1813</span>
+            <p class="book-title">Pride and Prejudice</p>
+            <p class="book-author">Jane Austen</p>
+            <span class="book-year">1813</span>
           </article>
-          <article>
-            <button><img src="./assets/heart.svg" alt="Like" /></button>
+          <article class="book-card">
+            <button class="like-btn">
+              <img src="./assets/heart.svg" alt="Like" />
+            </button>
             <img
               src="mockinbird.jpg"
               alt="Book cover of To Kill a Mockinbird"
             />
-            <p>To Kill a Mockinbird</p>
-            <p>Harper Lee</p>
-            <span>1960</span>
+            <p class="book-title">To Kill a Mockinbird</p>
+            <p class="book-author">Harper Lee</p>
+            <span class="book-year">1960</span>
           </article>
-          <article>
-            <button><img src="./assets/heart.svg" alt="Like" /></button>
+          <article class="book-card">
+            <button class="like-btn">
+              <img src="./assets/heart.svg" alt="Like" />
+            </button>
             <img
               src="catcher-in-the-rye.jpg"
               alt="Book cover of The Catcher in the Rye"
             />
-            <p>The Catcher in the Rye</p>
-            <p>J.D. Salinger</p>
-            <span>1951</span>
+            <p class="book-title">The Catcher in the Rye</p>
+            <p class="book-author">J.D. Salinger</p>
+            <span class="book-year">1951</span>
           </article>
-          <article>
-            <button><img src="./assets/heart.svg" alt="Like" /></button>
+          <article class="book-card">
+            <button class="like-btn">
+              <img src="./assets/heart.svg" alt="Like" />
+            </button>
             <img src="hobbit.jpg" alt="Book cover of The Hobbit" />
-            <p>The Hobbit</p>
-            <p>J.R.R. Tolkien</p>
-            <span>1937</span>
+            <p class="book-title">The Hobbit</p>
+            <p class="book-author">J.R.R. Tolkien</p>
+            <span class="book-year">1937</span>
           </article>
         </section>
-        <section>
-          <div>
+        <section class="favorites">
+          <div class="favorites-header">
             <img src="./assets/heart.svg" alt="Favorites" />
             <div>
               <h2>Favorites</h2>
               <span>3 books saved</span>
             </div>
           </div>
-          <div>
-            <article>
+          <div class="fav-books">
+            <article class="fav-book">
               <img src="hobbit.jpg" alt="Book cover of The Hobbit" />
               <div>
-                <h3>The Hobbit</h3>
-                <span>J.R.R. Tolkien</span>
-                <span>1937</span>
+                <h3 class="fav-book-title">The Hobbit</h3>
+                <span class="fav-book-author">J.R.R. Tolkien</span>
+                <span class="fav-book-year">1937</span>
                 <button><img src="./assets/heart.svg" alt="Like" /></button>
               </div>
             </article>
-            <article>
+            <article class="favorite-book">
               <img src="dune.jpg" alt="Book cover of Dune" />
               <div>
-                <h3>Dune</h3>
-                <span>Frank Herbert</span>
-                <span>1965</span>
+                <h3 class="fav-book-title">Dune</h3>
+                <span class="fav-book-author">Frank Herbert</span>
+                <span class="fav-book-year">1965</span>
                 <button><img src="./assets/heart.svg" alt="Like" /></button>
               </div>
             </article>
-            <article>
+            <article class="favorite-book">
               <img
                 src="pride-and-prejudice.jpg"
                 alt="Book cover of Pride and Prejudice"
               />
               <div>
-                <h3>Pride and Prejudice</h3>
-                <span>Jane Austen</span>
-                <span>1813</span>
+                <h3 class="fav-book-title">Pride and Prejudice</h3>
+                <span class="fav-book-author">Jane Austen</span>
+                <span class="fav-book-year">1813</span>
                 <button><img src="./assets/heart.svg" alt="Like" /></button>
               </div>
             </article>
@@ -131,7 +142,7 @@
 
     <footer>
       <span
-        >Powered by <a href="https://openlibrary.org/">Open Library</a></span
+        >Powered by <a href="https://openlibrary.org/" class="link">Open Library</a></span
       >
     </footer>
   </body>
