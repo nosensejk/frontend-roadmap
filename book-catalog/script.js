@@ -1,44 +1,92 @@
-function countDown(num){
-  console.log(num);
-  if (num > 0) {
-    countDown(num-1)
-  }
-}
-countDown(6);
+const user = {};
 
-function factorial(num) {
-  if (num === 1) return 1;
-  return num * factorial(num - 1)
-}
+user.name = "Anton";
+user.age = 67;
+user.email = "qweqwe@gmail.by";
 
-console.log(factorial(5));
+const keys = Object.keys(user);
+console.log(keys);
 
-
-function sumTo(num){
-  if (num === 0) return 0;
-  return num + sumTo(num - 1);
-}
-
-console.log(sumTo(10));
-
-const category = {
-    name: "Books",
-    children: [
-        {
-            name: "JavaScript",
-            children: []
-        },
-        {
-            name: "CSS",
-            children: []
-        }
-    ]
+const book = {
+  title: "JavaScript",
+  author: "John Doe",
+  year: 2026,
 };
 
-function printCategory(obj){
-  console.log(obj.name);
-  for(const child of obj.children) {
-    printCategory(child)
+book.price = 25;
+
+const person = {
+  name: "Alex",
+  age: 69,
+};
+
+const personCopy = {
+  ...person,
+  name: "Anton",
+};
+
+console.log(personCopy);
+
+const personalInfo = {
+  name: "Alex",
+  age: 25,
+};
+
+const workInfo = {
+  company: "Example",
+  position: "Frontend Developer",
+};
+
+const info = Object.assign({}, personalInfo, workInfo);
+
+console.log(info);
+
+book.getInfo = function () {
+  console.log(`${this.author} - ${this.title}`);
+};
+
+book.getInfo();
+
+const user2 = {
+  name: "Alex",
+
+  sayHello() {
+    console.log(`Hello, ${this.name}!`);
+  },
+};
+
+user2.sayHello();
+
+const user3 = {
+  name: "Alex",
+
+  getName() {
+    return this.name;
+  },
+};
+
+const getName = user3.getName.bind(user3);
+console.log(getName());
+
+const counter = {
+  value: 0,
+
+  increment() {
+    this.value++;
+  },
+};
+
+for (let i = 1; i <= 3; i++) {
+  counter.increment();
+}
+console.log(counter.value);
+
+const user4 = {
+  name: "Alex",
+  sayName() {
+    setTimeout(() => {
+      console.log(this.name);
+    }, 1000);
   }
 }
-printCategory(category)
+user4.sayName();
