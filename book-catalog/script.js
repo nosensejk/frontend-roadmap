@@ -1,52 +1,61 @@
-console.log("hello");
-
-const year = 1985
-console.log(year);
-
-
-const day = "Monday";
-
-switch (day) {
-    case "Monday":
-        console.log("Понедельник");
-        break;
-
-    case "Tuesday":
-        console.log("Вторник");
-        break;
-
-    case "Wednesday":
-        console.log("Среда");
-        break;
-
-    default:
-        console.log("Другой день");
+function sayHello() {
+  console.log("hello");
 }
 
-const books = [
-    "Dune",
-    "1984",
-    "The Hobbit",
-    "Harry Potter",
-    "The Great Gatsby"
-];
+sayHello();
 
-for (let i = 0; i < books.length; i++) {
-   console.log(books[i]);
-   
+function greet(name) {
+  console.log(`Hello, ${name}`);
 }
 
-for (const book of books) {
-   console.log(book);
+greet("Anton");
+
+const sum = (a, b) => a + b;
+console.log(sum(10, 20));
+
+function getBookInfo(book, author, year) {
+  console.log(`${book} - ${author} (${year})`);
+}
+getBookInfo("Dune", "Frank Herbert", 1965);
+
+
+const appName = "Book Catalog";
+function showAppName() {
+  console.log(appName);
+}
+showAppName();
+
+function createCounter() {
+  let count = 0;
+  return function(){
+    count++;
+    console.log(count);
+  }
 }
 
-console.log(books.length > 3);
+const counter = createCounter();
+counter();
+counter();
 
-const isLoggedIn = true;
-if (isLoggedIn) {
-   console.log("Добро пожаловать!");
-   
-} else {
-   console.log("Войдите в аккаунт");
-   
+function createMultiplier(multiplier) {
+  return function (number){
+    return number * multiplier;
+  }
 }
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+const num1 = double(10);
+const num2 = triple(15);
+
+console.log(num1, num2);
+
+function createGreating(name) {
+  return function() {
+    console.log(`Hello, ${name}!`);
+  }
+}
+
+const greetAnton = createGreating("Anton");
+greetAnton();
