@@ -1,103 +1,32 @@
-class User {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
+const numbers = [1, 2, 3, 4, 5, 6];
+numbers.push(7);
+numbers.pop();
+console.log(numbers);
 
-    sayHello() {
-        console.log(`Hello, ${this.name}, ${this.age}`);
-    }
-}
+const fruits = ["Apple", "Banana", "Orange"];
+fruits.unshift("Mango");
+console.log(fruits);
 
-const user1 = new User("Anton", 67);
-const user2 = new User("Alex", 55);
+const evenNumbers = numbers.filter(num => num % 2 === 0)
+console.log(evenNumbers);
 
-user1.sayHello();
-user2.sayHello();
+const double = numbers.map(num => num * 2);
+console.log(double);
 
-class Book {
-    constructor(title, author) {
-        this.title = title;
-        this.author = author;
-    }
+const users = [
+    { name: "Alex", age: 25 },
+    { name: "John", age: 17 },
+    { name: "Kate", age: 30 }
+];
+const adults = users.filter(user => user.age > 18);
+console.log(adults);
 
-    getInfo() {
-        console.log(`${this.title} - ${this.author}`);
-    }
-}
+const kate = users.find(user => user.name === "Kate");
+console.log(kate);
 
-const book = new Book("JS", "Jane Doe");
-book.getInfo();
+const numbers2 = [10, 20, 30, 40];
+let result = numbers2.reduce((prev, curr) => {
+  return prev + curr
+});
+console.log(result);
 
-class Admin extends User {
-  constructor(name, age, role) {
-    super(name, age);
-    this.role = role;
-  }
-  deleteUser() {
-    console.log("User deleted");
-  }
-}
-
-const admin = new Admin("Anton", 67, "Admin");
-admin.deleteUser();
-
-
-class User1 {
-  constructor(firstName, lastName, age) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age = age;
-  }
-
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`
-  }
-
-  set age(value){
-    if (value < 0) {
-      console.log("no negative age");
-      return;
-    }
-    this._age = value;
-  }
-}
-const user11 = new User1("Antonio", "Banderas", 55);
-console.log(user11.fullName);
-user11.age = -5
-console.log(user11);
-
-class Product {
-  constructor(price) {
-    this.price = price;
-  }
-
-  set price(value) {
-    if (value < 0) {
-      console.log("no negative price");
-      return;
-    }
-    this._price = value;
-  }
-
-  get price(){
-    return this._price;
-  }
-}
-
-const fruit = new Product(25);
-fruit.price = -10;
-console.log(fruit);
-
-class Rectangle {
-    constructor(width, height) {
-        this.width = width;
-        this.height = height
-    }
-
-    get area() {
-        return this.width * this.height;
-    }
-}
-const rect = new Rectangle(10, 7);
-console.log(rect.area);
