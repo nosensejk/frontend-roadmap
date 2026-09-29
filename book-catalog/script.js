@@ -1,40 +1,41 @@
-const users = new Map();
-users.set(1, "Alex");
-users.set(2, "John");
-users.set(3, "Kate")
-console.log(users.get(2));
+const header1 = document.createElement("h1");
+header1.id = "title";
+header1.textContent = "Old title";
+document.body.prepend(header1);
+header1.textContent = "New title";
 
-const goods = new Map();
-goods.set(1, "Book");
-goods.set(2, "Laptop");
-goods.set(3, "Phone");
-console.log(goods.has(2));
+const button = document.createElement("button");
+button.id = "button";
+button.textContent = "Click me!";
+document.body.prepend(button);
+button.addEventListener("click", () => {
+  console.log("Clicked!");
+});
 
-const numbers = new Set();
-numbers.add(1);
-numbers.add(1);
-numbers.add(2);
-numbers.add(3);
-numbers.add(3);
-numbers.add(3);
-console.log(numbers);
+const container = document.createElement("div");
+container.id = "container";
+container.innerHTML = `<p>Hello!</p>`;
+document.body.prepend(container)
 
-const numbersArr = [1, 2, 2, 3, 4, 4, 5, 5, 5];
-const numbersSet = new Set(numbersArr);
-console.log(numbersSet);
+const theme = document.createElement("button");
+theme.id = "theme";
+theme.textContent = "Toggle theme!";
+document.body.prepend(theme);
+theme.addEventListener("click", () => {
+  theme.classList.toggle("dark")
+});
 
-const newUsers = new WeakSet();
-const user1 = {
-  name: "Anton",
-  age: 67
-};
-const user2 = {
-  name: "Alex",
-  age: 3
-};
-
-newUsers.add(user1);
-newUsers.add(user2);
-console.log(newUsers.has(user1), newUsers.has(user2));
-
-
+const list = document.createElement("ul");
+const li1 = document.createElement("li");
+const li2 = document.createElement("li");
+const li3 = document.createElement("li");
+list.appendChild(li1);
+list.appendChild(li2);
+list.appendChild(li3);
+li1.textContent="HTML"
+li2.textContent="CSS"
+li3.textContent="JavaScript"
+document.body.prepend(list);
+list.addEventListener("click", () => {
+  console.log(event.target);
+})
