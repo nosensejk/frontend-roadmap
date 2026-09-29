@@ -1,37 +1,53 @@
-console.log(window.innerHeight);
-console.log(window.innerWidth);
+setTimeout(() => {
+  console.log("Hello Javascript");
+}, 3000);
 
-console.log(location.href);
-console.log(location.pathname, location.search, location.hash);
+const timeoutId = setTimeout(() => {
+  console.log("Hello");
+}, 5000);
+
+clearTimeout(timeoutId);
+
+let seconds = 1;
+
+const intervalId = setInterval(() => {
+  console.log(seconds);
+  seconds++;
+  if (seconds > 5) {
+    clearInterval(intervalId);
+  }
+}, 1000);
 
 const btn = document.createElement("button");
-btn.textContent = "Go back";
-btn.addEventListener("click", () => {
-  history.back();
-});
+btn.textContent = "Start";
 document.body.append(btn);
 
-const reload = document.createElement("button");
-reload.textContent = "Reload";
-reload.addEventListener("click", () => {
-  location.reload();
-});
-document.body.append(reload);
+btn.addEventListener("click", () => {
+   setTimeout(() => {
+      btn.textContent = "Done"
+   }, 3000);
+})
 
-const block = document.createElement("div");
-const width = document.createElement("span");
-const height = document.createElement("span");
-const connection = document.createElement("span");
+const startButton = document.createElement("button");
+startButton.textContent = "Start timer";
+document.body.append(startButton);
+const stopButton = document.createElement("button");
+stopButton.textContent = "Stop Timer";
+document.body.append(stopButton);
 
-width.textContent = window.innerWidth + " ";
-height.textContent = window.innerHeight + " ";
-connection.textContent = navigator.onLine;
+const timerText = document.createElement("p")
+timerText.textContent = 0;
+document.body.append(timerText);
+let time = timerText.textContent;
+let timer;
 
-block.append(width, height, connection);
-document.body.append(block);
+startButton.addEventListener("click", () => {
+   timer = setInterval(() => {
+      time++;
+      timerText.textContent = time;
+   }, 1000);
+})
 
-window.addEventListener("resize", () => {
-  width.textContent = window.innerWidth + " ";
-  height.textContent = window.innerHeight + " ";
-  connection.textContent = navigator.onLine;
-});
+stopButton.addEventListener("click", () => {
+   clearInterval(timer)
+})
