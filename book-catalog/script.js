@@ -1,41 +1,37 @@
-const header1 = document.createElement("h1");
-header1.id = "title";
-header1.textContent = "Old title";
-document.body.prepend(header1);
-header1.textContent = "New title";
+console.log(window.innerHeight);
+console.log(window.innerWidth);
 
-const button = document.createElement("button");
-button.id = "button";
-button.textContent = "Click me!";
-document.body.prepend(button);
-button.addEventListener("click", () => {
-  console.log("Clicked!");
+console.log(location.href);
+console.log(location.pathname, location.search, location.hash);
+
+const btn = document.createElement("button");
+btn.textContent = "Go back";
+btn.addEventListener("click", () => {
+  history.back();
 });
+document.body.append(btn);
 
-const container = document.createElement("div");
-container.id = "container";
-container.innerHTML = `<p>Hello!</p>`;
-document.body.prepend(container)
-
-const theme = document.createElement("button");
-theme.id = "theme";
-theme.textContent = "Toggle theme!";
-document.body.prepend(theme);
-theme.addEventListener("click", () => {
-  theme.classList.toggle("dark")
+const reload = document.createElement("button");
+reload.textContent = "Reload";
+reload.addEventListener("click", () => {
+  location.reload();
 });
+document.body.append(reload);
 
-const list = document.createElement("ul");
-const li1 = document.createElement("li");
-const li2 = document.createElement("li");
-const li3 = document.createElement("li");
-list.appendChild(li1);
-list.appendChild(li2);
-list.appendChild(li3);
-li1.textContent="HTML"
-li2.textContent="CSS"
-li3.textContent="JavaScript"
-document.body.prepend(list);
-list.addEventListener("click", () => {
-  console.log(event.target);
-})
+const block = document.createElement("div");
+const width = document.createElement("span");
+const height = document.createElement("span");
+const connection = document.createElement("span");
+
+width.textContent = window.innerWidth + " ";
+height.textContent = window.innerHeight + " ";
+connection.textContent = navigator.onLine;
+
+block.append(width, height, connection);
+document.body.append(block);
+
+window.addEventListener("resize", () => {
+  width.textContent = window.innerWidth + " ";
+  height.textContent = window.innerHeight + " ";
+  connection.textContent = navigator.onLine;
+});
