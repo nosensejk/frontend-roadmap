@@ -1,49 +1,60 @@
-async function getNumber() {
-  return 10;
-}
+localStorage.setItem(
+    "username",
+    "Alex"
+);
 
-async function showNumber() {
-  const res = await getNumber();
-  console.log(res);
-}
-showNumber();
+const username = localStorage.getItem("username");
+console.log(username);
 
-function delay() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Done");
-    }, 2000);
-  });
-}
+sessionStorage.setItem("currentStep", 2);
+const step = sessionStorage.getItem("currentStep");
+console.log(typeof step);
 
-async function showDelay() {
-  console.log(await delay());
-}
+const fruits = [
+    "Apple",
+    "Banana",
+    "Orange"
+];
 
-showDelay();
+localStorage.setItem("fruits", JSON.stringify(fruits));
+const fr = localStorage.getItem("fruits");
+console.log(JSON.parse(fr));
 
-async function loadBooks() {
-  try {
-    const response = await fetch(
-      "https://openlibrary.org/search.json?q=javascript",
+
+const books = [
+    {
+        id: 1,
+        title: "JavaScript"
+    },
+    {
+        id: 2,
+        title: "Clean Code"
+    }
+];
+
+localStorage.setItem("books", JSON.stringify(books));
+
+
+function toggleFavorite(book) {
+    const stored =
+        localStorage.getItem("favorites");
+
+    const favorites = stored
+        ? JSON.parse(stored)
+        : [];
+
+    const exists = favorites.some(
+        (item) => item.id === book.id
     );
-    const data = await response.json();
-    console.log(data.docs);
-  } catch (error) {
-    console.log("Failed to load books:", error);
-  }
-}
 
-async function loadData() {
-  try {
-    const [number, delays] = await Promise.all([getNumber(), delay()]);
-    console.log(number);
-    console.log(delays);
-  } catch (error) {
-    console.error(error);
-  } finally {
-    console.log("Loading finished");
-  }
-}
+    const updatedFavorites = exists
+        ? favorites.filter(
+            (item) => item.id !== book.id
+        )
+        : [...favorites, book];
 
-loadData();
+    localStorage.setItem(
+        "favorites",
+        JSON.stringify(updatedFavorites)
+    );
+}
