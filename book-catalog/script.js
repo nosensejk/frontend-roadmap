@@ -1,53 +1,81 @@
-setTimeout(() => {
-  console.log("Hello Javascript");
-}, 3000);
+const promise = new Promise((resolve) => {
+  resolve("Success");
+});
 
-const timeoutId = setTimeout(() => {
-  console.log("Hello");
-}, 5000);
+promise.then((data) => {
+  console.log(data);
+});
 
-clearTimeout(timeoutId);
+const promiseErr = new Promise((resolve, reject) => {
+  reject(new Error("Something went wrong"));
+});
 
-let seconds = 1;
+promiseErr.catch((err) => {
+  console.log(err);
+});
 
-const intervalId = setInterval(() => {
-  console.log(seconds);
-  seconds++;
-  if (seconds > 5) {
-    clearInterval(intervalId);
-  }
-}, 1000);
+const data = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Data loaded");
+  }, 2000);
+});
 
-const btn = document.createElement("button");
-btn.textContent = "Start";
-document.body.append(btn);
+data.then((res) => {
+  console.log(res);
+});
 
-btn.addEventListener("click", () => {
-   setTimeout(() => {
-      btn.textContent = "Done"
-   }, 3000);
-})
+Promise.resolve(10)
+  .then((value) => {
+    return value * 2;
+  })
+  .then((value) => {
+    return value + 5;
+  })
+  .then((value) => console.log(value));
 
-const startButton = document.createElement("button");
-startButton.textContent = "Start timer";
-document.body.append(startButton);
-const stopButton = document.createElement("button");
-stopButton.textContent = "Stop Timer";
-document.body.append(stopButton);
+function getBooks() {
+  return new Promise((resolve) => {
+    resolve(["Book 1", "Book 2", "Book 3"]);
+  });
+}
+getBooks().then((value) => {
+  console.log(value);
+});
 
-const timerText = document.createElement("p")
-timerText.textContent = 0;
-document.body.append(timerText);
-let time = timerText.textContent;
-let timer;
+//
 
-startButton.addEventListener("click", () => {
-   timer = setInterval(() => {
-      time++;
-      timerText.textContent = time;
-   }, 1000);
-})
+const first = Promise.resolve("First");
+const second = Promise.resolve("Second");
+const third = Promise.resolve("Third");
 
-stopButton.addEventListener("click", () => {
-   clearInterval(timer)
-})
+Promise.all([first, second, third]).then((res) => console.log(res));
+Promise.allSettled([first, second, third]).then((res) => console.log(res));
+
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject("Promise 1 rej");
+  }, 1000);
+});
+
+const promise2 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Promise 2");
+  }, 2000);
+});
+
+const promise3 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("Promise 3");
+  }, 3000);
+});
+
+Promise.any([promise1, promise2, promise3]).then((res) => console.log(res));
+Promise.race([promise3, promise1])
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
+
+function getNumber() {
+  return 10;
+}
+
+Promise.try(getNumber).then((res) => console.log(res));
