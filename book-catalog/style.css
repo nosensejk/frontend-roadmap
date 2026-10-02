@@ -58,7 +58,7 @@ header {
    object-fit: contain;
 }
 
-.logo-text{
+.logo-text {
    display: flex;
    flex-direction: column;
 }
@@ -171,6 +171,12 @@ main {
    gap: 1.25rem;
 }
 
+.no-results{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
 .book-card {
    background-color: var(--card);
    border: 1px solid var(--border);
@@ -189,37 +195,6 @@ main {
 .book-card:hover {
    transform: translateY(-2px);
    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.like-btn {
-   position: absolute;
-   top: 10px;
-   right: 10px;
-   z-index: 2;
-   background: rgba(255, 255, 255, 0.9);
-   border: none;
-   border-radius: 50%;
-   width: 28px;
-   height: 28px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   cursor: pointer;
-   transition: transform 0.2s;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.fa-regular{
-   color: var(--brown);
-}
-
-.like-btn.active {
-  color: var(--red);
-  background: var(--white);
-}
-
-.like-btn:hover {
-   transform: scale(1.1);
 }
 
 .cover-container {
@@ -355,14 +330,74 @@ main {
    font-size: 0.65rem;
    color: #a39b92;
 }
+/* Белая круглая кнопка */
 
-
-.fav-remove-btn {
-   background: none;
-   border: none;
+/* Кнопка сердечка в каталоге книг */
+.like-btn {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   z-index: 2;
+   background-color: var(--white);
+   border: 1px solid var(--border);
+   border-radius: 50%;
+   width: 28px;
+   height: 28px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    cursor: pointer;
-   padding: 4px;
-   color: var(--red);
+   transition: transform 0.2s;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Кнопка сердечка в боковой панели (Favorites) */
+.fav-remove-btn {
+   position: static;
+   background-color: var(--white);
+   border: 1px solid var(--border);
+   border-radius: 50%;
+   width: 28px;
+   height: 28px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   transition: transform 0.2s;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.like-btn:hover,
+.fav-remove-btn:hover {
+   transform: scale(1.1);
+}
+
+/* Неактивное иконка-сердечко (серый контур) */
+.like-btn img {
+   width: 14px;
+   height: 14px;
+   opacity: 0.4;
+   display: block;
+}
+
+/* --- Активные сердечки в каталоге (.active) и в блоке Favorites --- */
+
+.like-btn.active img,
+.fav-remove-btn img {
+   display: none; /* Скрываем стандартную картинку */
+}
+
+.like-btn.active::before,
+.fav-remove-btn::before {
+   content: "";
+   display: block;
+   width: 14px;
+   height: 14px;
+   background-color: var(--red);
+   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
+   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E")
+      no-repeat center / contain;
 }
 
 footer {
