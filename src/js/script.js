@@ -64,7 +64,7 @@ function renderBooks(books) {
                 data-author="${encodeURIComponent(author)}" 
                 data-year="${year}" 
                 data-cover="${coverUrl}">
-          <img src="./assets/heart.svg" alt="Like" />
+          <img src="./src/assets/heart.svg" alt="Like" />
         </button>
         <div class="cover-container">
           <img src="${coverUrl}" alt="Book cover" loading="lazy" />

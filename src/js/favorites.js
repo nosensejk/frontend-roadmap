@@ -36,7 +36,7 @@ export function renderFavorites() {
         <span class="fav-book-year">${book.year}</span>
       </div>
       <button class="fav-remove-btn" data-key="${book.key}">
-        <img src="./assets/heart.svg" alt="Remove" />
+        <img src="./src/assets/heart.svg" alt="Remove" />
       </button>
     </article>
   `).join("");
