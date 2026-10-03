@@ -4,7 +4,8 @@
   "description": "Simple book catalog application",
   "main": "index.js",
   "scripts": {
-    "dev": "echo \"Development server will be added in the next topic\""
+    "dev": "vite",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/nosensejk/frontend-roadmap/issues"
   },
-  "homepage": "https://github.com/nosensejk/frontend-roadmap#readme"
+  "homepage": "https://github.com/nosensejk/frontend-roadmap#readme",
+  "devDependencies": {
+    "vite": "^8.3.2"
+  }
 }
